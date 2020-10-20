@@ -110,7 +110,7 @@ end
 function Backup:remove()
    
     os.remove(self._path)
-    if(io.exists(path)) then
+    if(io.exists(self._path)) then
         return false
     end
     
