@@ -54,4 +54,18 @@ log(DALI:normalLamp())
 log(DALI:emergencyECG())
 -- Defective normal ECG = true
 log(DALI:normalECG())
+-- Values of all methods above in one object. Returns the following:
+--[[ {
+    numberOfECGs = 21,
+    numberOfInverters = 0,
+    defectiveInverter = false,
+    numberOfDefectiveLamps = 0,
+    emergencyLamp = false,
+    normalLamp = false,
+    numberOfDefectiveECGs = 1,
+    emergencyECG = false,
+    normalECG = true,
+}
+]]
+log(DALI:toObject())
 ```
