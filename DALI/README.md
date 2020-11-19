@@ -1,5 +1,9 @@
 ## DALI Diagnostics - Siemens Gateway
-Tested on `Siemens KNX/DALI Gateway Twin plus N 141/21`
+Valid for:
+* `KNX / DALI Gateway Twin N 141/31 983305`
+* `KNX / DALI Gateway Twin N 141/31 983D05`
+* `KNX / DALI Gateway Twin plus N 141/21 983405`
+* `KNX / DALI Gateway plus N 141/03 983705`
 
 <hr>
 
