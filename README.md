@@ -30,3 +30,6 @@ Upload files to Dropbox using this script. Dropbox App token must be provided.
 
 ### Messagebird
 Send SMS using this script. A valid [MessageBird](https://messagebird.com/en) account is required. Specify the token in the constructor.
+
+### DALI
+Retrieve diagnostics from the DALI bus using the Siemens N 141/21 KNX/DALI Gateway. See [DALI read me file](DALI/README.md) for information.
