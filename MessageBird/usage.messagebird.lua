@@ -8,7 +8,7 @@ local isTesting = false -- Whether in test mode or live mode
 require 'user.messagebird'
 
 local useToken = live
-if isTesting ~= true then
+if isTesting == true then
     useToken = test
 end
 
