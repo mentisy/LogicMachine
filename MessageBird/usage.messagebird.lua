@@ -12,7 +12,7 @@ if isTesting == true then
     useToken = test
 end
 
-Messagebird:construct(useToken, originator)
+Messagebird:new(useToken, originator)
 
 local sms = Messagebird:sendSms("RECIPIENT_PHONE_NUMBER", "Some random SMS message")
 
