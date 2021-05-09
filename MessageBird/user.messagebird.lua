@@ -10,32 +10,28 @@
 
 Messagebird = {}
 
--- Create Messagebird class
-function Messagebird:new()
-    local newObj = {}
-    self.__index = self
-    return setmetatable(newObj, self)
-end
-
 --[[
  * Constructor method
  *
  * @var string token Token from Messagebird
  * @var string originator Who the message is from
 ]]
-function Messagebird:construct(token, originator)
+function Messagebird:new(token, originator)
+    local newObj = {
+        token = token,
+        originator = originator,
+        baseUrl = "https://rest.messagebird.com/",
+        request = require('ssl.https').request,
+        ltn12 = require("ltn12"),
+        json = require('json'),
+        headers = {
+     	   Authorization = "AccessKey "..token
+		},
+        http = require "socket.http"
+    }
     
-    self.token = token
-    self.originator = originator
-    self.baseUrl = "https://rest.messagebird.com/"
-    
-    local http = require "socket.http"
-    self.request = require('ssl.https').request
-    self.ltn12 = require("ltn12")
-    self.json = require('json')
-    self.headers = {
-        Authorization = "AccessKey "..token
-	}
+    self.__index = self
+    return setmetatable(newObj, self)
 end
 
 --[[
