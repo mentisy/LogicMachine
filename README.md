@@ -23,7 +23,12 @@ The Dropbox class in this repository can be used to upload the backup to Dropbox
 ### Corridor Logic
 Used in building automation to evaluate corridor lighting. Usually in office buildings, when at least one office is occupied, we want the corridor lighting in that area to remain on. Or even when one corridor is occupied (directly or indirectly through an occupied office), we want lighting in the entrance area or common staircases to remain on as well.
 
-This script enables an easy way to evaluate whether one of these are occupied, and sends the evaluated value to designated outputs in the building. Provide a TAG for inputs and a TAG for outputs. The inputs can be PIR detectors and outputs are usually relays. These tags must then be applied to all relevant group addresses in the KNX bus.   
+This script enables an easy way to evaluate whether one of these are occupied, and sends the evaluated value to designated outputs in the building. Provide a TAG for inputs and a TAG for outputs. The inputs can be PIR detectors and outputs are usually relays. These tags must then be applied to all relevant group addresses in the KNX bus. 
+
+### KNX
+Parse and create KNX addresses convenience methods
+* Parse an address string (1/2/3) into main (1), middle (2) and sub (2) groups
+* Create an address string by entering a main, middle and sub group.
 
 ### Dropbox
 Upload files to Dropbox using this script. Dropbox App token must be provided.
