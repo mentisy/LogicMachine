@@ -25,13 +25,13 @@ Used in building automation to evaluate corridor lighting. Usually in office bui
 
 This script enables an easy way to evaluate whether one of these are occupied, and sends the evaluated value to designated outputs in the building. Provide a TAG for inputs and a TAG for outputs. The inputs can be PIR detectors and outputs are usually relays. These tags must then be applied to all relevant group addresses in the KNX bus. 
 
+### Dropbox
+Upload files to Dropbox using this script. Dropbox App token must be provided.
+
 ### KNX
 Parse and create KNX addresses convenience methods
 * Parse an address string (1/2/3) into main (1), middle (2) and sub (2) groups
 * Create an address string by entering a main, middle and sub group.
-
-### Dropbox
-Upload files to Dropbox using this script. Dropbox App token must be provided.
 
 ### Messagebird
 Send SMS using this script. A valid [MessageBird](https://messagebird.com/en) account is required. Specify the token in the constructor.
