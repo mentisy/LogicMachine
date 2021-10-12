@@ -12,9 +12,9 @@ if isTesting == true then
     useToken = test
 end
 
-Messagebird:new(useToken, originator)
+local messageBird = Messagebird:new(useToken, originator)
 
-local sms = Messagebird:sendSms("RECIPIENT_PHONE_NUMBER", "Some random SMS message")
+local sms = messageBird:sendSms("RECIPIENT_PHONE_NUMBER", "Some random SMS message")
 
 if sms.error == false then
     if(sms.response.recipients.totalDeliveryFailedCount > 0) then
