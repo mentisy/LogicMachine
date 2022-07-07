@@ -8,7 +8,7 @@ local token = "DROPBOX_APP_TOKEN" -- Dropbox App token
 local ftpConfig = {
     user = 'ftp_user',
     password = 'ftp_password',
-    ip = '192.168.2.122',
+    ip = '127.0.0.1',
 }
 
 -- Base map is prepended to path automatically based on the Dropbox App used
