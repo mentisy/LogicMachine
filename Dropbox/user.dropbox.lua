@@ -48,7 +48,7 @@ function Dropbox:construct(config)
         destPath = '/Apper/Logic Machine Backup/',
         filename = 'LogicMachine-backup.tar.gz',
         ftpConfig = {
-            ip = "192.168.1.122",
+            ip = "127.0.0.1",
             username = "user",
             password = "password",
         },
