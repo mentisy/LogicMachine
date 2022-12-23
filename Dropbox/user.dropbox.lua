@@ -1,6 +1,7 @@
 --[[
  * Author: Alexander Volle <knx@avolle.com>
  * Created: 2019.11.23
+ * Updated: 2022-12-23
  * 
  * Dropbox API interface
  *
@@ -133,6 +134,7 @@ function Dropbox:getFile()
     local ftpFile = string.format("ftp://%s:%s@%s/%s", user, password, ip, filename)
     
     local file = socket.ftp.get(ftpFile)
+    assert(file ~= nil, 'File ´' .. ftpFile .. '´ does not exist.')
     
     return file
 end
