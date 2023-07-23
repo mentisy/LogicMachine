@@ -116,6 +116,36 @@ function LogRemover:deleteScriptAlerts(scriptName)
 end
 
 --[[
+ * Remove log records that contain one of the specified phrases.
+ * 
+ * @param table phrases - Phrases that, if contained in log, should be deleted.
+ * @return int - Number of affected rows (deleted logs)
+]]
+function LogRemover:deleteLogsWithPhrases(phrases)
+    return self:_deleteLogTypeWithPhrases("logs", phrases)
+end
+
+--[[
+ * Remove error records that contain one of the specified phrases.
+ * 
+ * @param table phrases - Phrases that, if contained in errors, should be deleted.
+ * @return int - Number of affected rows (deleted errors)
+]]
+function LogRemover:deleteErrorsWithPhrases(phrases)
+    return self:_deleteLogTypeWithPhrases("errors", phrases)
+end
+
+--[[
+ * Remove alerts records that contain one of the specified phrases.
+ * 
+ * @param table phrases - Phrases that, if contained in alerts, should be deleted.
+ * @return int - Number of affected rows (deleted alerts)
+]]
+function LogRemover:deleteAlertsWithPhrases(phrases)
+    return self:_deleteLogTypeWithPhrases("alerts", phrases)
+end
+
+--[[
  * INTERNAL FUNCTION: Remove certain logtype with certain script name
  * 
  * @param string logType - Either log, alert or errors
@@ -130,4 +160,35 @@ function LogRemover:_deleteScriptLog(logType, scriptName)
     assert(type(scriptName) == 'string', 'Parameter `scriptName` must be string')
     
     return db:query("DELETE FROM ? WHERE scriptname = ?", logType, scriptName)
+end
+
+--[[
+ * INTERNAL FUNCTION: Remove certain logtype with certain phrases.
+ * 
+ * @param string logType - Either log, alert or errors
+ * @param table phrases - Phrases that, if contained in log, should be deleted.
+ * @return int - Number of affected rows (deleted log types)
+]]
+function LogRemover:_deleteLogTypeWithPhrases(logType, phrases)
+    assert(
+        logType == 'logs' or logType == 'alerts' or logType == 'errors', 
+        'Log type must be one of these: logs, alerts, errors'
+    )
+    assert(type(phrases) == 'table', 'Parameter `phrases` must be table')
+    local column = "log"
+    if (logType == "errors") then
+        column = "errortext"
+    elseif (logType == "alerts") then
+        column = "alert"
+    end
+    -- Binding table and column name not allowed per SQLite specifications, but they are safe
+    -- to format normally, as malicious user input is not permitted, through our assertions above.
+    local queryText = string.format("DELETE FROM %s WHERE %s LIKE ?", logType, column)
+    local affected = 0
+    for _, phrase in ipairs(phrases) do
+        local like = "%" .. phrase .. "%"
+        affected = affected + db:query(queryText, like)
+    end
+    
+    return affected
 end
