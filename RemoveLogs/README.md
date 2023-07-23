@@ -27,6 +27,16 @@ LogRemover:deleteScriptErrors("Script #1")
 
 -- Delete alert records from a single script.
 LogRemover:deleteScriptAlerts("Script #1")
+
+-- Delete log records (excluding error and alert) that contain a specific phrase or word
+LogRemover:deleteLogsWithPhrases({"Some log message", "Delete log that contain this"})
+
+-- Delete error records that contain a specific phrase or word
+-- You can pass just one phrase by putting it inside a table
+LogRemover:deleteErrorsWithPhrases({"trigger"})
+
+-- Delete alert records that contain a specific phrase or word
+LogRemover:deleteAlertsWithPhrases({"content"})
 ```
 
 ### Installation
