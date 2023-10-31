@@ -43,7 +43,7 @@ function Backup:generate()
     
     -- Execute internal backup script and package it to the save path
     os.execute('sh /lib/genohm-scada/web/general/backup.sh')
-	os.execute('cd /lib/genohm-scada/storage && tar -c -z -f ' .. path .. ' ./')
+	os.execute('cd /lib/genohm-scada/storage && tar -c -z -f "' .. path .. '" ./')
     
     if(io.exists(path) == false) then
         return false
