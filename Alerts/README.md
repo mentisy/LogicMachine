@@ -162,7 +162,7 @@ local alerts = Alerts:new({adapter = messageBirdAlertAdapter})
 
 -- If in debug mode, set adapter as debugAlertAdapter
 if (DEBUG) then
-    Alerts:setAdapter(debugAlertAdapter)
+    alerts:setAdapter(debugAlertAdapter)
 end
 
 -- Send alert. Returns whether the SMS was successfully sent
