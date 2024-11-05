@@ -1,6 +1,7 @@
 --[[
  * Author: Alexander Volle <knx@avolle.com>
  * Created: 2019.11.23
+ * Modified: 2024.11.05
  *
  * MessageBird API Interface
  *
@@ -125,5 +126,5 @@ end
  * @return bool Whether response code is considered "OK"
 ]]
 function Messagebird:requestOk(code)
-    return code >= 200 or code <= 299
+    return code >= 200 and code <= 299
 end
