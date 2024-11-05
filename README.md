@@ -10,8 +10,8 @@ This repository is mainly created in order to keep a backup of the scripts, but 
 ### API
 A **very** shallow API class, enabling developers to send data to their own / other's API. Currently only supporting POST method requests.
 
-### Alert
-Send alert to a **Gmail** account (only service supported thus far). Provide credentials, recipient address and message before sending. Used when certain KNX events occurs and an alert is requried for logging or speedy diagnostics. 
+### Alerts
+Send alerts however you want (log messages, email, SMS, etc.) through custom adapters. Mentioned adapters are provided. Feel free to create your own and submit them in a PR. 
 
 ### Backup
 LogicMachines are like other computers vulnerable for crashes or defects. This script provides an easy way to create a backup to the local FTP server. It must then be uploaded, using some "cloud" service. The usage example will use Dropbox, or more specifically an API App created in Dropbox to support uploading files. 
